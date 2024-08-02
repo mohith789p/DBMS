@@ -1,61 +1,149 @@
 SQL Queries
+
+
 Write SQL Queries for the following:
+
 1) Display all the records in emp table.
+select *  
+From emp;
+
 2) Display all the records in emp table where employee belongs to deptno 10.
+select *  
+From emp 
+Where deptno = 10;
+
 3) Display all the records in emp table where employee does not belong to deptno 30.
+select *  
+From emp 
+Where deptno <> 30
+
 4) Display total number of records in Emp table.
+select count(*) 
+From emp;
+
 5) Display emp table with salary descending order.
+select * 
+From emp 
+order by sal desc
+
 6) Display first five records in employee table.
+select *
+from emp
+where rownum < 6;
+
+or 
+
+select *
+from emp
+fetch first 5 rows only;
+
 7) Display all the records in emp table order by ascending deptno, descending salary.
+select * 
+From emp 
+order by deptno ,sal desc
+
 8) Display all employees those who were joined in year 1981.
+select * 
+From emp 
+where hiredate between '01-Jan-1981' and '01-Jan-1982'
+
 9) Display employee information who don’
-10) Display the records in emp table where MGR in 7698,7566 and sal should be greater then
-1500
+
+10) Display the records in emp table where MGR in 7698,7566 and sal should be greater then 1500
+select * 
+From emp 
+where hiredate between '01-Jan-1981' and '01-Jan-1982'
+
 11) Display all employees where their salary is less then the Ford’s salary?
+select ename
+from emp
+where sal < (select sal 
+    		    from emp
+    		    where ename = 'FORD');
+
 12) Display all the records in EMP table along with the rowed.
+select rownum SNo,emp.*
+from emp;
+
 13) Write a query to display current date.
+
 14) Display distinct job from emp table.
-15) Write a query that displays the employee’s names with the first letter capitalized and all other
-letters lowercase for all employees whose name starts with J, A, or M.
-16) Write a query to display the employee name, department name of all employees who earn a
-commission.
+select distinct job
+from emp;
+
+15) Write a query that displays the employee’s names with the first letter capitalized and all other letters lowercase for all employees whose name starts with J, A, or M.
+
+
+16) Write a query to display the employee name, department name of all employees who earn a commission.
+
 17) Display the empno, ename, sal, and salary increased by 15%.
+
 18) Display employee names and corresponding manager names
-19) Display all the departments where employee salary greater than average salary of that
-department.
+
+19) Display all the departments where employee salary greater than average salary of that department.
+
 20) Display employees where length of ename is 5
+
 21) Display all employees where ename start with J and ends with S
+
 22) Display all employees where employee does not belong to 10,20,40
+
 23) Display all employees where jobs does not belong to PRESIDENT and MANAGER.
+
 24) Display the maximum salary in the emp table
+
 25) Display average salary for job SALESMAN
+
 26) Display all ename where first character could be anything, but second character should be L.
+
 27) Display nth highest and nth lowest salary in emp table.
+
 28) Display all the departments where department has 3 employees.
+
 29) Display sum of salary for each department.
+
 30) Display all department with Minimum salary and maximum salary?
+
 31) Display all ename, empno, dname, loc from emp, dept table.
+
 32) Display all the departments where department does not have any employees
+
 33) Display all the departments where department does have atleast one employee
+
 34) Display all employees those who are not managers.
+
 35) Display ename, deptno from emp table with format of {ename} belongs to {deptno}
-36) Display all the records in emp table. The ename should be lower case. The job first character
-should be upper case and rest of the character in job field should be lower case.
+
+36) Display all the records in emp table. The ename should be lower case. The job first character should be upper case and rest of the character in job field should be lower case.
+
 37) Create table emp1 and copy the emp table for deptno 10 while creating the table
+
 38) Create table emp2 with same structure of emp table. Do not copy the data
+
 39) Display all the records for deptno which belongs to employee name JAMES.
-40) Display all the records in emp table where salary should be less than or equal to ADAMS
-salary.
+
+40) Display all the records in emp table where salary should be less than or equal to ADAMS salary.
+
 41) Display all subordinate those who are working under BLAKE.
+
 42) Display who is making highest commission.
+
 43) Display ename, sal, grade, dname, loc for each employee.
+
 44) Display all employee whose location is DALLAS.
+
 45) Delete emp records for detpno 10 and 20.
+
 46) Delete all employees those are not getting any commission.
-47) Delete the employees where employee salary is greater than average salary of his/her
-department.
+
+47) Delete the employees where employee salary is greater than average salary of his/her department.
+
 48) Rename the employee name JONES to ANDY
+
 49) Increase the salary 5% for employee those who are earning commission less then 1000
+
 50) Increase 100$ for employee who is making more then averge salary of his department.
+
 51) Increase 1% salary for employee who is making lowest salary in dept 10
+
 52) Increase commission 10$ for employees those who are located in NEW YORK.
