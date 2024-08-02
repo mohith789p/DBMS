@@ -72,11 +72,18 @@ select distinct job
 from emp;
 
 15) Write a query that displays the employee’s names with the first letter capitalized and all other letters lowercase for all employees whose name starts with J, A, or M.
-
+select upper(substr(ename,1,1)) || lower(substr(ename,2)) as name
+from emp
+where ename like 'J%' or ename like 'A%' or ename like 'M%';
 
 16) Write a query to display the employee name, department name of all employees who earn a commission.
+select ename, dname
+from emp e,dept d
+where e.deptno = d.deptno and comm is not null;
 
 17) Display the empno, ename, sal, and salary increased by 15%.
+select empno,ename,sal, sal * 1.15 increasedSalary
+from emp;
 
 18) Display employee names and corresponding manager names
 
