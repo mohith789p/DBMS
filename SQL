@@ -112,28 +112,58 @@ select empno,ename,sal, sal * 1.15 increasedSalary
 from emp;
 
 18) Display employee names and corresponding manager names
+select emp.ename employee, mng.ename manager
+from emp , emp mng
+where emp.mgr = mng.empno;
 
 19) Display all the departments where employee salary greater than average salary of that department.
 
+
 20) Display employees where length of ename is 5
+select ename
+from emp
+where length(ename) = 5;
 
 21) Display all employees where ename start with J and ends with S
+select ename
+from emp
+where upper(ename) like 'J%S';
 
 22) Display all employees where employee does not belong to 10,20,40
+select *
+from emp
+where deptno<>10 and deptno<>20 and deptno<>40;
 
 23) Display all employees where jobs does not belong to PRESIDENT and MANAGER.
+select *
+from emp
+where job not in ('PRESIDENT', 'MANAGER');
 
 24) Display the maximum salary in the emp table
+select MAX(SAL) as max
+from emp;
 
 25) Display average salary for job SALESMAN
+select avg(SAL) as avearge
+from emp
+where job = 'SALESMAN';
 
 26) Display all ename where first character could be anything, but second character should be L.
+SELECT ENAME
+FROM EMP
+WHERE ENAME like '_L%';
 
 27) Display nth highest and nth lowest salary in emp table.
 
+
 28) Display all the departments where department has 3 employees.
+select dname
+from emp natural join dept
+group by dname
+having count(empno) = 3;
 
 29) Display sum of salary for each department.
+
 
 30) Display all department with Minimum salary and maximum salary?
 
