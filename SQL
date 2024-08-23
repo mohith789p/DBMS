@@ -117,7 +117,11 @@ from emp , emp mng
 where emp.mgr = mng.empno;
 
 19) Display all the departments where employee salary greater than average salary of that department.
-
+SELECT DISTINCT DNAME
+FROM DEPT NATURAL JOIN EMP
+WHERE SAL > ANY(SELECT AVG(SAL)
+    		FROM EMP
+    		GROUP BY DEPTNO);
 
 20) Display employees where length of ename is 5
 select ename
@@ -163,14 +167,21 @@ group by dname
 having count(empno) = 3;
 
 29) Display sum of salary for each department.
-
+select dept.dname, COALESCE(sum(emp.sal),0) "TOTAL SALARY"
+from emp right join dept
+    on dept.deptno = emp.deptno
+group by dept.dname;
 
 30) Display all department with Minimum salary and maximum salary?
 
 31) Display all ename, empno, dname, loc from emp, dept table.
 
 32) Display all the departments where department does not have any employees
-
+select dname 
+from dept 
+where deptno in (select deptno from dept 
+				minus
+				select deptno from emp)
 33) Display all the departments where department does have atleast one employee
 
 34) Display all employees those who are not managers.
