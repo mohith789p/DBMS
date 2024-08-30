@@ -183,10 +183,19 @@ where deptno in (select deptno from dept
 				minus
 				select deptno from emp)
 33) Display all the departments where department does have atleast one employee
+select dname 
+from dept 
+where deptno in (select distinct deptno from emp);
 
 34) Display all employees those who are not managers.
+select ename
+from emp
+where empno not in (select distinct mgr
+				from emp
+    where mgr is not null);
 
 35) Display ename, deptno from emp table with format of {ename} belongs to {deptno}
+
 
 36) Display all the records in emp table. The ename should be lower case. The job first character should be upper case and rest of the character in job field should be lower case.
 
@@ -212,12 +221,32 @@ where deptno in (select deptno from dept
 
 47) Delete the employees where employee salary is greater than average salary of his/her department.
 
+
+
 48) Rename the employee name JONES to ANDY
+update emp
+set ename = 'ANDY'
+where ename = 'JONES';
 
 49) Increase the salary 5% for employee those who are earning commission less then 1000
+update emp set sal = sal + sal * 0.05
+where comm < 1000;
+
 
 50) Increase 100$ for employee who is making more then averge salary of his department.
+/ * update emp set sal = sal+ 100
+    where sal > (select avg(sal) 
+    			from emp
+    			group by deptno); * /
+
 
 51) Increase 1% salary for employee who is making lowest salary in dept 10
+update emp set sal = sal*1.01
+    where sal in (select min(sal) 
+    			from emp 
+    			where deptno = 10);
 
 52) Increase commission 10$ for employees those who are located in NEW YORK.
+update emp set sal = sal + 10
+where deptno in (select deptno
+    from dept where loc = 'NEW YORK');
