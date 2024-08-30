@@ -204,10 +204,21 @@ where empno not in (select distinct mgr
 38) Create table emp2 with same structure of emp table. Do not copy the data
 
 39) Display all the records for deptno which belongs to employee name JAMES.
+select *
+from emp
+where deptno = (select deptno 
+    from emp
+    where ename = 'JAMES');
 
 40) Display all the records in emp table where salary should be less than or equal to ADAMS salary.
+select *
+from emp
+where sal <= (select sal 
+    from emp
+    where ename = 'ADAMS');
 
 41) Display all subordinate those who are working under BLAKE.
+
 
 42) Display who is making highest commission.
 
