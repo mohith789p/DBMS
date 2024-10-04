@@ -180,7 +180,8 @@ from dept natural join emp
 group by dname;
 
 31) Display all ename, empno, dname, loc from emp, dept table.
-
+select ename, empno, dname, loc 
+from emp natural join dept;
 
 32) Display all the departments where department does not have any employees
 select dname 
@@ -188,6 +189,7 @@ from dept
 where deptno in (select deptno from dept 
 				minus
 				select deptno from emp)
+
 33) Display all the departments where department does have atleast one employee
 select dname 
 from dept 
@@ -198,10 +200,11 @@ select ename
 from emp
 where empno not in (select distinct mgr
 				from emp
-    where mgr is not null);
+    			where mgr is not null);
 
 35) Display ename, deptno from emp table with format of {ename} belongs to {deptno}
-
+SELECT ename || ' belongs to ' || deptno as works
+FROM emp;
 
 36) Display all the records in emp table. The ename should be lower case. The job first character should be upper case and rest of the character in job field should be lower case.
 
