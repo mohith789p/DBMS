@@ -258,8 +258,9 @@ from emp
 where comm is null
 
 47) Delete the employees where employee salary is greater than average salary of his/her department.
-
-
+delete from emp
+where sal > (select avg(sal) 
+    		from emp);
 
 48) Rename the employee name JONES to ANDY
 update emp
