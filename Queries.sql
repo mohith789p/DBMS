@@ -207,10 +207,17 @@ SELECT ename || ' belongs to ' || deptno as works
 FROM emp;
 
 36) Display all the records in emp table. The ename should be lower case. The job first character should be upper case and rest of the character in job field should be lower case.
+select ename,initcap(job) as job
+from emp;
 
 37) Create table emp1 and copy the emp table for deptno 10 while creating the table
+create table emp1 as 
+select * from emp;
 
 38) Create table emp2 with same structure of emp table. Do not copy the data
+create table emp2 as 
+select * from emp
+    where 1 = 0;
 
 39) Display all the records for deptno which belongs to employee name JAMES.
 select *
@@ -227,17 +234,28 @@ where sal <= (select sal
     where ename = 'ADAMS');
 
 41) Display all subordinate those who are working under BLAKE.
-
+select * from emp
+where mgr = (select empno from emp where ename ='BLAKE');
 
 42) Display who is making highest commission.
-
+select *
+from emp
+where comm =(select MAX(comm)
+    		from emp);
+	
 43) Display ename, sal, grade, dname, loc for each employee.
 
-44) Display all employee whose location is DALLAS.
 
+44) Display all employee whose location is DALLAS.
+select *
+from emp natural join dept
+where loc = 'DALLAS';
 45) Delete emp records for detpno 10 and 20.
 
 46) Delete all employees those are not getting any commission.
+delete 
+from emp 
+where comm is null
 
 47) Delete the employees where employee salary is greater than average salary of his/her department.
 
