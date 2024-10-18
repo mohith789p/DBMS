@@ -210,14 +210,12 @@ FROM emp;
 select ename,initcap(job) as job
 from emp;
 
-37) Create table emp1 and copy the emp table for deptno 10 while creating the table
+3 7) Create table emp1 and copy the emp table for deptno 10 while creating the table
 create table emp1 as 
 select * from emp;
 
 38) Create table emp2 with same structure of emp table. Do not copy the data
-create table emp2 as 
-select * from emp
-    where 1 = 0;
+
 
 39) Display all the records for deptno which belongs to employee name JAMES.
 select *
@@ -251,6 +249,7 @@ select *
 from emp natural join dept
 where loc = 'DALLAS';
 45) Delete emp records for detpno 10 and 20.
+	delete from emp where deptno = 10 or deptno = 20;
 
 46) Delete all employees those are not getting any commission.
 delete 
