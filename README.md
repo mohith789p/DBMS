@@ -118,6 +118,5 @@ department.
 ---
 
 ### SQL Query Solutions
-```text
-If you want to see the answers for the above questions, please open the file [solutions](./queries.sql).
-```
+
+If you want to see the answers for the above questions, please open the file [solutions](Queries.sql).
